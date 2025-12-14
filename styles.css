@@ -1,0 +1,20 @@
+:root {
+  /* Paper & background */
+  --paper-base: #f4f1ea;        /* Washi paper */
+  --paper-shadow: #e2ddd2;     /* Paper depth */
+  --paper-edge: #d0c8b8;       /* Cut edges */
+
+  /* Ink */
+  --ink-black: #1b1b1b;        /* Sumi ink */
+  --ink-fade: #2a2a2a;         /* Slightly diluted ink */
+
+  /* Accents */
+  --indigo: #1f2a44;           /* Aizome indigo */
+  --vermilion: #8f1d14;        /* Hanko red */
+  --gold-muted: #9c8b5e;       /* Old gold (very subtle) */
+
+  /* UI timing */
+  --slow: 900ms;
+  --medium: 600ms;
+  --fast: 300ms;
+}
