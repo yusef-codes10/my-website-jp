@@ -53,3 +53,22 @@ h1, h2, .brush {
   from { mask-position: 100% 0; }
   to { mask-position: 0 0; }
 }
+
+/* .paper {
+  height: 100px;
+  width: 100px;
+  border: 2px solid var(--ink-black);
+  background: var(--paper-base);
+  clip-path: url(#paper-cut);
+  box-shadow:
+    inset 0 0 0 1px var(--paper-edge),
+    0 8px 20px rgba(0,0,0,0.15);
+} */
+
+.paper {
+      height: 100px;
+  width: 100px;
+  -webkit-mask-image: url('/textures/torn-edge.svg');
+  mask-image: url('/textures/torn-edge.svg');
+  mask-size: cover;
+}
