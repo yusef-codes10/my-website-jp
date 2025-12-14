@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kouzan+Brush&family=Yuji+Boku&family=Shippori+Mincho:wght@400;600&display=swap');
+
 :root {
   /* Paper & background */
   --paper-base: #f4f1ea;        /* Washi paper */
@@ -17,4 +19,13 @@
   --slow: 900ms;
   --medium: 600ms;
   --fast: 300ms;
+}
+
+
+body {
+  font-family: 'Shippori Mincho', serif;
+  color: var(--ink-black);
+}
+h1, h2, .brush {
+  font-family: 'Kouzan Brush', cursive;
 }
