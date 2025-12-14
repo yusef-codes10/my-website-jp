@@ -21,10 +21,17 @@
   --fast: 300ms;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
   font-family: 'Shippori Mincho', serif;
   color: var(--ink-black);
+  background-color: var(--gold-muted);
+  height: 100vh;
 }
 h1, h2, .brush {
   font-family: 'Caveat Brush', cursive;
