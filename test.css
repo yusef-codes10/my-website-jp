@@ -1,3 +1,7 @@
+/* ================================
+   SCROLL CONTAINER (MAIN)
+================================ */
+
 .container-scroll {
   width: 420px;
   height: 520px;
@@ -5,7 +9,7 @@
   position: relative;
   overflow: hidden;
 
-  /* Parchment base */
+  /* Parchment color */
   background: linear-gradient(
     90deg,
     #c49a6c 0%,
@@ -15,26 +19,84 @@
     #c49a6c 100%
   );
 
-  border-radius: 6px;
+  /* This is what creates the CUT corners */
+  clip-path: polygon(
+    0% 4%,
+    3% 0%,
+    97% 0%,
+    100% 4%,
+
+    100% 96%,
+    97% 100%,
+    3% 100%,
+    0% 96%
+  );
 
   /* Depth */
   box-shadow:
     inset 0 0 18px rgba(255, 240, 200, 0.6),
     inset 0 0 40px rgba(160, 120, 60, 0.45),
     0 10px 25px rgba(0, 0, 0, 0.55);
+
+  transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* ================================
+   TOP & BOTTOM CYLINDERS (RODS)
+================================ */
 
 .container-scroll::before,
 .container-scroll::after {
   content: "";
   position: absolute;
-  top: 0;
-  width: 22px;
-  height: 100%;
-  z-index: 2;
+  left: -10px;
+  width: calc(100% + 20px);
+  height: 22px;
+
+  /* Wooden rod gradient */
+  background:
+    radial-gradient(circle at 8% 50%, #2b1a0c 0 30%, transparent 32%),
+    radial-gradient(circle at 92% 50%, #2b1a0c 0 30%, transparent 32%),
+    linear-gradient(
+      to bottom,
+      #5a3a1a,
+      #8b5a2b,
+      #5a3a1a
+    );
+
+  border-radius: 50%;
+
+  box-shadow:
+    inset 0 2px 3px rgba(255, 220, 180, 0.4),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.4),
+    0 3px 6px rgba(0, 0, 0, 0.6);
+
+  z-index: 5;
 }
 
 .container-scroll::before {
+  top: -11px;
+}
+
+.container-scroll::after {
+  bottom: -11px;
+}
+
+/* ================================
+   SIDE DARKENING (ROLLED EDGES)
+================================ */
+
+.container-scroll .edge-left,
+.container-scroll .edge-right {
+  position: absolute;
+  top: 0;
+  width: 22px;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.container-scroll .edge-left {
   left: 0;
   background: linear-gradient(
     to right,
@@ -43,7 +105,7 @@
   );
 }
 
-.container-scroll::after {
+.container-scroll .edge-right {
   right: 0;
   background: linear-gradient(
     to left,
@@ -52,6 +114,9 @@
   );
 }
 
+/* ================================
+   INNER CONTENT
+================================ */
 
 .scroll-content {
   height: 100%;
@@ -61,10 +126,5 @@
   align-items: center;
   justify-content: center;
 
-  /* Prevent real scrolling */
   overflow: hidden;
-}
-
-.container-scroll {
-  transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
